@@ -1,0 +1,23 @@
+[
+    {
+        "segmentation": [
+            {
+                "type": "metaio_image",
+                "filename": "1.mha"
+            }
+        ],
+        "uncertainty": [
+            {
+                "type": "metaio_image",
+                "filename": "1.mha"
+            }
+        ],
+        "inputs": [
+            {
+                "type": "metaio_image",
+                "filename": "1.mha"
+            }
+        ],
+        "error_messages": []
+    }
+]
