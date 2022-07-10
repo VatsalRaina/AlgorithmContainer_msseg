@@ -5,7 +5,7 @@ import torch
 from scipy import ndimage
 from monai.networks.nets import UNet
 from monai.inferers import sliding_window_inference
-
+from uncertainty import ensemble_uncertainties_classification
 from pathlib import Path
 
 from evalutils import SegmentationAlgorithm
@@ -143,8 +143,11 @@ class Baseline(SegmentationAlgorithm):
         seg = np.squeeze(seg)
         seg = remove_connected_components(seg)
 
+        uncs = ensemble_uncertainties_classification( np.concatenate( (np.expand_dims(all_outputs, axis=-1), np.expand_dims(1.-all_outputs, axis=-1)), axis=-1) )
+        unc_rmi = uncs["reverse_mutual_information"]
+
         out_seg = SimpleITK.GetImageFromArray(seg)
-        out_unc = out_seg
+        out_unc = SimpleITK.GetImageFromArray(unc_rmi)
         return out_seg, out_unc
 
 

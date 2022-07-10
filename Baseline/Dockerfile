@@ -21,6 +21,7 @@ COPY --chown=algorithm:algorithm requirements.txt /opt/algorithm/
 RUN python -m pip install --user -rrequirements.txt
 
 COPY --chown=algorithm:algorithm process.py /opt/algorithm/
+COPY --chown=algorithm:algorithm uncertainty.py /opt/algorithm/
 COPY --chown=algorithm:algorithm model1.pth /opt/algorithm/model1.pth
 COPY --chown=algorithm:algorithm model2.pth /opt/algorithm/model2.pth
 COPY --chown=algorithm:algorithm model3.pth /opt/algorithm/model3.pth
