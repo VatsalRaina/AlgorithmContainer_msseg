@@ -134,9 +134,11 @@ class Baseline(SegmentationAlgorithm):
         image = np.array(image)
 
         # The image must be normalized as that is what we did with monai for training of the model
-        mu = np.mean(image)
-        sigma = np.std(image)
-        image = (image - mu) / sigma
+        # only normalize non-zero values (i.e. not the background)
+        non_zeros = image != 0
+        mu = np.mean(image[non_zeros])
+        sigma = np.std(image[non_zeros])
+        image[non_zeros] = (image[non_zeros] - mu) / sigma
 
         with torch.no_grad():
 
