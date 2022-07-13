@@ -58,8 +58,16 @@ class Baseline(SegmentationAlgorithm):
             ),
         )
 
-        self._segmentation_output_path = Path("/output/segmentation/")
-        self._uncertainty_output_path = Path("/output/uncertainty/")
+        output_path = Path("/output/images/")
+        if not output_path.exists():
+            output_path.mkdir()
+
+        #self._input_path = Path("/input/images/brain-mri/")
+        self._segmentation_output_path = Path("/output/images/white-matter-multiple-sclerosis-lesion-segmentation/")
+        self._uncertainty_output_path = Path("/output/images/white-matter-multiple-sclerosis-lesion-uncertainty-map/")
+
+        #self._segmentation_output_path = Path("/output/segmentation/")
+        #self._uncertainty_output_path = Path("/output/uncertainty/")
 
         self.device = get_default_device()
 
@@ -124,6 +132,11 @@ class Baseline(SegmentationAlgorithm):
 
         image = SimpleITK.GetArrayFromImage(input_image)
         image = np.array(image)
+
+        # The image must be normalized as that is what we did with monai for training of the model
+        mu = np.mean(image)
+        sigma = np.std(image)
+        image = (image - mu) / sigma
 
         with torch.no_grad():
 
