@@ -131,7 +131,8 @@ class Baseline(SegmentationAlgorithm):
     def predict(self, *, input_image: SimpleITK.Image) -> SimpleITK.Image:
 
         image = SimpleITK.GetArrayFromImage(input_image)
-        image = np.array(image)
+        image = np.transpose(np.array(image))
+
 
         # The image must be normalized as that is what we did with monai for training of the model
         # only normalize non-zero values (i.e. not the background)
