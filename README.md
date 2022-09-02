@@ -33,3 +33,8 @@ If you are on this section, we assume you have trained your own models and ensur
 3. Update `requirements.txt` with any additional libraries needed for the inference of your models.
 4. Now you must add your own inference code in `process.py`. You only need to edit the function `def predict(self, *, input_image: SimpleITK.Image) -> SimpleITK.Image:` which takes in a single input image and returns a segmentation map of probabilities and an uncertainty map.
 5. You can now check that your model operates correctly using the BUILD, TEST and EXPORT commands.
+
+## Contact
+
+If you are struggling with any of the above steps or need clarifications on how to use this repository, please contact:
+Vatsal Raina (vr311@cam.ac.uk)
