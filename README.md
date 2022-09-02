@@ -6,7 +6,7 @@ This repository is an example of the algorithm container with baseline models th
 
 This section outlines how to prepare the baseline submission for Grand Challenge. Please ensure you have the authority to build Docker images on your local system and then follow these instructions which show you how to BUILD, TEST and then EXPORT the container:
 1. Clone this repository (or a forked version of it) onto your local system.
-2. Navigate to `.\Baseline\`
+2. Navigate to `./Baseline/`
 3. Ensure you can BUILD the container by running `./build.sh`.
 4. TEST the container by running `./test.sh` and confirm you see the message *Tests successfully passed...*.
 5. EXPORT the container by running `./export.sh`.
