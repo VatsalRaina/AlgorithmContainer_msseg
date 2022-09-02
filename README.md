@@ -36,5 +36,4 @@ If you are on this section, we assume you have trained your own models and ensur
 
 ## Contact
 
-If you are struggling with any of the above steps or need clarifications on how to use this repository, please contact:
-Vatsal Raina (vr311@cam.ac.uk)
+If you are struggling with any of the above steps or need clarifications on how to use this repository, please contact Vatsal Raina (vr311@cam.ac.uk)
