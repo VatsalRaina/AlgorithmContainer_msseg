@@ -21,7 +21,7 @@ This section aims to explain each of the files in the `./Baseline/` directory of
 * `uncertainty.py` is a module containing implementations of uncertainty measures computed based on deep ensembles to be used by `process.py`.
 * `process.py` specifies the inference of the models on each image and saves the predictions appropriately.
 * `build.sh` checks whether your system is able to build dockers.
-* `test.sh` checks if `process.py` is able to read in a sample image from `./test/` and generate the appropriate outputs (a continuous prediction of probabilities and an equivalent uncertainty map of the same size as the input image).
+* `test.sh` checks if `process.py` is able to read in a sample image from `./test/` and generate the appropriate outputs (a continuous prediction of probabilities and an equivalent uncertainty map of the same size as the input image) to match the expected output `./test/expected_output.json`.
 * `export.sh` wraps the container together into a single `.tar.gz` file that can then be used for submission.
 
 
