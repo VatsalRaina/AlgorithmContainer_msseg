@@ -31,7 +31,7 @@ If you are on this section, we assume you have trained your own models and ensur
 1. Delete the existing models `model1.pth`, `model2.pth` and `model3.pth` and add your own models instead.
 2. Edit `Dockerfile` to ensure the new models you have added are correctly linked based on the names you have used for them (see how the baseline models are linked in the file e.g.  `COPY --chown=algorithm:algorithm model1.pth /opt/algorithm/model1.pth`).
 3. Update `requirements.txt` with any additional libraries needed for the inference of your models.
-4. Now you must add your own inference code in `process.py`. You only need to edit the function `def predict(self, *, input_image: SimpleITK.Image) -> SimpleITK.Image:` which takes in a single input image and returns a segmentation map of probabilities and an uncertainty map.
+4. Now you must add your own inference code in `process.py`. You only need to edit the function `def predict(self, *, input_image: SimpleITK.Image) -> SimpleITK.Image:` which takes in a single input image and returns a segmentation map of probabilities and an uncertainty map. You will also need to initialise your models in the `def __init__()` function.
 5. You can now check that your model operates correctly using the BUILD, TEST and EXPORT commands.
 
 ## Contact
